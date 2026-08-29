@@ -1,0 +1,18 @@
+[package]
+name = "revision-projet"
+version = "0.1.0"
+description = "Moteur de révision par récupération active et répétition espacée"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-sql = { version = "2", features = ["sqlite"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Le Rust reste une coquille technique (fenêtre, plugin SQL) — voir section 2 du document
+# d'architecture. Aucune règle métier n'est portée ici : toute la logique de répétition
+# espacée et des cas d'usage vit en TypeScript dans src/domain et src/application.
